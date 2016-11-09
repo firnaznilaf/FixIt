@@ -1,16 +1,26 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width" />
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-    </head>
-    <body>
-        <header>
-            <div class="content-wrapper">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="x-ua-compatible" content="IE=10">
+    <title>@ViewBag.Title - Home</title>
+    @{ dynamic version = "?_v=" + @ViewBag.AppVersion; }
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap.css")@version"/>
+    <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap-theme.css")@version"/>
+    <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap-theme.min.css")@version"/>
+    <link rel="stylesheet" href="@Url.Content("~/Content/bootstrap.min.css")@version"/>
+    <link rel="stylesheet" href="@Url.Content("~/Content/Site.css")@version"/>
+    <link rel="stylesheet" href="@Url.Content("~/Content/themes/base/minified/jquery-ui.min.css")@version"/>
+    <link rel="stylesheet" href="@Url.Content("~/Content/themes/base/minified/jquery.ui.dialog.min.css")@version"/>
+    <link rel="stylesheet" href="@Url.Content("~/Content/themes/base/jquery.ui.all.css")@version"/>
+  
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <header>
+        @*<div class="content-wrapper">
                 <div class="float-left">
                     <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
                 </div>
@@ -26,23 +36,134 @@
                         </ul>
                     </nav>
                 </div>
+            </div>*@
+    </header>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
             </div>
-        </header>
-        <div id="body">
-            @RenderSection("featured", required: false)
-            <section class="content-wrapper main-content clear-fix">
-                @RenderBody()
-            </section>
-        </div>
-        <footer>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
-                </div>
-            </div>
-        </footer>
 
-        @Scripts.Render("~/bundles/jquery")
-        @RenderSection("scripts", required: false)
-    </body>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">Link</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Link</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div ng-view></div>
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; @DateTime.Now.Year - Test</p>
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+
+    @*angular Packages*@
+
+    <script src="@Url.Content("~/Scripts/angular-resource.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/angular-parse-ext.min.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/angular-parse-ext.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/angular-mocks.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/angular-messages.min.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/angular-messages.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/angular-message-format.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/angular-message-format.min.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/angular-loader.min.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/angular-loader.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/angular-cookies.min.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/angular-cookies.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/angular-aria.min.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/angular-aria.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/angular-animate.min.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/angular-animate.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/angular-resource.min.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/angular-route.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/angular-route.min.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/angular-sanitize.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/angular-sanitize.min.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/angular-scenario.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/angular-touch.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/angular-touch.min.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/angular.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/angular.min.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/bootstrap.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/jquery-3.1.1.intellisense.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/jquery-3.1.1.min.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/jquery-3.1.1.slim.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/jquery-3.1.1.slim.min.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.8.24.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.8.24.min.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/jquery.validate-vsdoc.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/modernizr-2.6.2.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/knockout-2.2.0.js")@version"> </script>
+    <script src="@Url.Content("~/Scripts/knockout-2.2.0.debug.js")@version"> </script>
+
+    <script type="text/javascript">
+        var fixIt = {
+            rootUrl: '@Url.Content("~/")'
+        };
+        var define = define || {};
+    </script>
+
+</body>
 </html>
