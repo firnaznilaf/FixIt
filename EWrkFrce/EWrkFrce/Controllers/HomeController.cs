@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace EWrkFrce.Controllers
+namespace Test.Controllers
 {
     public class HomeController : Controller
     {

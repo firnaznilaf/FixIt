@@ -11,7 +11,7 @@ using WebMatrix.WebData;
 using EWrkFrce.Filters;
 using EWrkFrce.Models;
 
-namespace EWrkFrce.Controllers
+namespace Test.Controllers
 {
     [Authorize]
     [InitializeSimpleMembership]
