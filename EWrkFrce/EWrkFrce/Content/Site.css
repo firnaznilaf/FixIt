@@ -1,0 +1,10 @@
+﻿body {
+}
+.forced-left-align {
+    text-align: left !important;
+}
+
+.control-label-left-align {
+    text-align: left !important;
+}
+
